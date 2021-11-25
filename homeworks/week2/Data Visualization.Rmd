@@ -1,0 +1,26 @@
+---
+title: "test"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+  library(qwraps2)
+options(qwraps2_markup = "markdown")
+```
+
+```{r}
+new_summary <-
+  qsummary(data[, c("num_mistakes", "ft_size")],
+           numeric_summaries = list("Minimum" = "~ min(%s)",
+                                    "Maximum" = "~ max(%s)",
+                                    "Mean (Std)" = "~ qwraps2::mean_sd(%s, denote_sd = 'paren')"),
+           n_perc_args = list(digits = 1, show_symbol = TRUE, show_denom = "always"))
+summary_table(data, new_summary)
+```
