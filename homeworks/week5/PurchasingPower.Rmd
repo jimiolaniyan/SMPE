@@ -1,0 +1,46 @@
+---
+title: "Purchasing power of English workers from the 16th to the 19th century"
+author: "Olaniyan Folajimi"
+date: "November 30, 2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+# Introduction
+
+The purpose of this peer-reviewed exercise to do a visualization of the data describing the purchasing power of workers in England between the 16th and 19th century. The data and accompanying visualization was first produced by William Playfair in his book: "A Letter on Our Agricultural Distresses, Their Causes and Remedies". After exploring the data, we divide this report into three main sections:
+
+  1. Reproducing Playfair's graph
+  2. Improving Playfair's graph
+  3. More graphical enhancements
+  
+# Data exploration
+
+We start by importing the data, displaying a few rows and showing some statistics.
+
+```{r}
+data = read.csv('data.csv')
+data[1:5,]
+```
+```{r}
+str(data)
+```
+
+# 1. Reproducing Playfair's graph
+```{r}
+ggplot(data=data, aes(x=Year, y=Wheat)) +
+  geom_bar(aes(y=Wheat), position=position_dodge(0.9), colour="black", stat="identity", width=4.5, binwidth=0) +
+  geom_area(aes(y=Wages), fill = "lightblue", color='red', alpha=0.91) 
+```
+```{r}
+
+```
+
