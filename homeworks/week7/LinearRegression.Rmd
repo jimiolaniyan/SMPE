@@ -1,0 +1,87 @@
+---
+title: "Linear Regression"
+author: "Olaniyan Folajimi"
+date: "12/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+# Linear regression on trees
+
+### Data cleaning
+
+```{r}
+myData=read.table(file="data.csv",sep=";",skip=3,header=TRUE)
+myData=myData[myData$X10!=0,]
+
+myData
+```
+
+## Simple model
+
+```{r}
+circ=myData$X70
+height=myData$X10
+ggplot(myData,aes(x=circ,y=height))+ geom_point()+
+xlab("circ")+
+ylab("height")
+```
+
+```{r}
+simple_reg <- lm(height~circ,data=myData)
+names(simple_reg)
+```
+
+```{r}
+anova(simple_reg)
+```
+```{r}
+summary(simple_reg)
+```
+
+```{r}
+ggplot(myData,aes(x=circ,y=height))+ geom_point()+
+stat_smooth(method="lm",se=FALSE)+ xlab("circ")+
+ylab("height")
+
+```
+
+
+## Multivariate regression
+```{r}
+myData$circ_sqrt <- sqrt(myData$X70)
+myData
+```
+
+```{r}
+multi_reg <- lm(height~circ+circ_sqrt,data=myData)
+summary(multi_reg)
+
+```
+```{r}
+multi_reg_2 <- lm(height~circ_sqrt,data=myData)
+summary(multi_reg_2)
+
+```
+
+
+```{r}
+circ_pred <- seq(0,175,len=1000)
+height_pred <- multi_reg_2$coefficients[1]+multi_reg_2$coefficients[2]*sqrt(circ_pred)
+fct_reg <- data.frame(circ_pred=circ_pred,height_pred=height_pred)
+ggplot()+
+geom_point(data=myData,aes(x=circ,y=height)) + 
+  geom_line(data=fct_reg,aes(x=circ_pred,y=height_pred),col="blue") +
+  stat_smooth(method="lm",se=FALSE) +
+  xlab("circ") +
+  ylab("height")
+
+```
+
