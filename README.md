@@ -5,9 +5,13 @@ This repository contains notes and homework reports for the course SMPE course a
 # Homeoworks:
 
 ## Week 3
-    - [x] [Challenger Exercise] (jimiolaniyan/smpe/homeworks/week3/Challenger.ipynb)
+    - [Challenger Exercise][1]
+    
+    
     - [x] [Challenger Exercise] (jimiolaniyan/smpe/homeworks/week3/Challenger.ipynb)
  
 ## Parallel Quicksort Homework
+
+[1]: https://github.com/gabridego/M2R-ParallelQuicksort/
 
 Please find the our code (along with Gabriele Degola) and report [here](https://github.com/gabridego/M2R-ParallelQuicksort/)  
