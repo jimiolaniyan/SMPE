@@ -22,5 +22,4 @@ This repository contains notes and homework reports for the course SMPE course a
 ### Week 6
 
 - [x] [Peer-evaluated exercise](homeworks/week6/PurchasingPower.pdf) on purchasing power (in progress)
-
 - [ ] Parallel quicksort imporvements
