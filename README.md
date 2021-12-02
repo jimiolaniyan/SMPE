@@ -2,16 +2,25 @@
 
 This repository contains notes and homework reports for the course SMPE course at Grenoble. 
 
-# Homeoworks:
+## Homeoworks
 
-## Week 3
-    - [Challenger Exercise][1]
-    
-    
-    - [x] [Challenger Exercise] (jimiolaniyan/smpe/homeworks/week3/Challenger.ipynb)
- 
-## Parallel Quicksort Homework
+### Week 2
 
-[1]: https://github.com/gabridego/M2R-ParallelQuicksort/
+- [x] [Data Visualization Exercise](jimiolaniyan/SMPE/homeworks/week2/Data-Visualization.pdf)
+- [x] [Challenger Exercise](jimiolaniyan/SMPE/homeworks/week2/Challenger.ipynb)
 
-Please find the our code (along with Gabriele Degola) and report [here](https://github.com/gabridego/M2R-ParallelQuicksort/)  
+### Week 3
+
+- [x] [Fist Name Analysis](jimiolaniyan/SMPE/homeworks/week3/French%20given%20names%20per%20year%20per%20department.pdf)
+- [ ] [R Manipulation](jimiolaniyan/SMPE/homeworks/week3/R%20manipulation.ipynb)
+
+### Week 5
+
+- [x] [Parallel Quicksort Homework](https://github.com/gabridego/M2R-ParallelQuicksort/blob/master/ParallelQuickSortReport.pdf)
+- [x] [ggplot review notes](jimiolaniyan/SMPE/notes/ggplot_tutorials/ggplot_tutorial.ipynb)
+
+### Week 6
+
+- [x] [Peer-evaluated exercise](jimiolaniyan/SMPE/homeworks/week6/PurchasingPower.pdf) on purchasing power (in progress)
+
+- [ ] Parallel quicksort imporvements
