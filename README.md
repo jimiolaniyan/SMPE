@@ -23,3 +23,14 @@ This repository contains notes and homework reports for the course SMPE course a
 
 - [x] [Peer-evaluated exercise](homeworks/week6/PurchasingPower.pdf) on purchasing power (in progress)
 - [ ] Parallel quicksort imporvements
+
+### Todos
+
+- [ ] Finish peer-evaluated exercise
+- [ ] Parallel quicksort imporvements (Use prometheus and grafana)
+- [ ] Finish R manipulation homework
+- [ ] Upload tp on linear regression
+- [ ] Finish ANOVA Homework on bats
+- [ ] Do DoE exercise
+- [ ] Choose an Ethics topic
+- [ ] Add links to notes

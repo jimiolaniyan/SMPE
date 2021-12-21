@@ -1,0 +1,59 @@
+---
+title: "ANOVA on Wheat"
+author: "Olaniyan Folajimi"
+date: "12/9/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ble <- read.table("ble.txt",header=TRUE,sep=";",dec=".")
+ble
+```
+
+```{r}
+ggplot(ble,aes(x=variete,y=rdt))+
+geom_boxplot()+
+ggtitle("Whisker boxes")+
+xlab("Wheat variety")+
+ylab("Yield")
+```
+
+```{r}
+ggplot(ble,aes(x=phyto,y=rdt))+
+geom_boxplot()+
+ggtitle("Boxplot")+
+xlab("Phytosanitary treatment")+
+ylab("Yield")
+
+```
+
+
+```{r}
+anova_variete <- lm(rdt~variete,data=ble)
+summary(anova_variete)
+```
+
+```{r}
+anova(anova_variete)
+```
+```{r}
+anova_phyto <- lm(rdt~phyto,data=ble)
+summary(anova_phyto)
+anova(anova_phyto)
+```
+
+```{r}
+anova_variete_phyto <- lm(rdt~variete*phyto,data=ble)
+summary(anova_variete_phyto)
+anova(anova_variete_phyto)
+
+```
+
