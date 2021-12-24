@@ -35,12 +35,53 @@ str(data)
 ```
 
 # 1. Reproducing Playfair's graph
+![Chart of the Quarter of Wheat & Wages of Labour per week](pf.png)
 ```{r}
 ggplot(data=data, aes(x=Year, y=Wheat)) +
   geom_bar(aes(y=Wheat), position=position_dodge(0.9), colour="black", stat="identity", width=4.5, binwidth=0) +
-  geom_area(aes(y=Wages), fill = "lightblue", color='red', alpha=0.91) 
+  geom_area(aes(y=Wages), fill = "lightblue", color='red', alpha=0.9) +
+  labs(y = "Shillings", x = "Year")
 ```
-```{r}
 
+### Comments
+
+  1. We can see from the wages curve that the there are missing values for the last few years. In the following section, we would remove these missing values as we cannot say much about purchasing power for that period.
+  2. Unlike the wages which are consistently increasing, the price of wheat does not have a consistent pattern.
+
+
+# 2. Improving Playfair's graph
+
+As mentioned in the previous section, we would like to remove missing values from the experiment. We can find these rows as follows:
+```{r}
+data[rowSums(is.na(data)) > 0, ]
+```
+
+```{r}
+df <- na.omit(data)
+summary(df)
+```
+To improve the original graph we can add an additional y-axis label where the left side is the price of wheat in shillings per quarter and the right side is the wages in shillings per week. 
+
+```{r}
+ggplot(df) +
+  aes(x = Year) + 
+  geom_point(aes(y=Wheat)) + 
+  geom_point(aes(y=Wages), size=0.7) +
+  geom_smooth(aes(y=Wheat)) +
+  geom_line(aes(y=Wheat)) + 
+  geom_line(aes(y=Wages), color='red') +
+  scale_y_continuous( name = "Wages (in Shillings per week)", sec.axis = sec_axis( trans=~.*10, name="Wheat in shillings per quarter")) +
+  theme(axis.title.y.left = element_text(colour = "red")) 
+```
+
+# 3. More graphical enhancements
+
+```{r}
+df <- transform(df, wheat_wages = Wages / Wheat)
+ggplot(df) +
+  aes(x = Year) + 
+  geom_point(aes(y=wheat_wages)) + 
+  geom_smooth(aes(y=wheat_wages)) +
+  geom_line(aes(y=wheat_wages))
 ```
 
