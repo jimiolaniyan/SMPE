@@ -21,16 +21,19 @@ This repository contains notes and homework reports for the course SMPE course a
 
 ### Week 6
 
-- [x] [Peer-evaluated exercise](homeworks/week6/PurchasingPower.pdf) on purchasing power (in progress)
+- [x] [Peer-evaluated exercise](homeworks/week6/PurchasingPower.pdf) on purchasing power
 - [ ] Parallel quicksort imporvements
+
+### Week 8
+
+- [ ] [ANOVA Exercise on Bats](https://github.com/CarlosVargasF/SMPE_MOSIG/blob/main/ANOVA_exercise/bats_analysis.pdf) (Working with Carlos)
 
 ### Todos
 
-- [ ] Finish peer-evaluated exercise
+- [ ] Finish ANOVA Homework on bats
 - [ ] Parallel quicksort imporvements (Use prometheus and grafana)
 - [ ] Finish R manipulation homework
 - [ ] Upload tp on linear regression
-- [ ] Finish ANOVA Homework on bats
 - [ ] Do DoE exercise
 - [ ] Choose an Ethics topic
 - [ ] Add links to notes
