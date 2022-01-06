@@ -40,7 +40,8 @@ str(data)
 ggplot(data=data, aes(x=Year, y=Wheat)) +
   geom_bar(aes(y=Wheat), position=position_dodge(0.9), colour="black", stat="identity", width=4.5, binwidth=0) +
   geom_area(aes(y=Wages), fill = "lightblue", color='red', alpha=0.9) +
-  labs(y = "Shillings", x = "Year")
+  labs(y = "Shillings", x = "Year") +
+  labs(title="The price of a quarter of wheat and wages per week from 1565 to 1861")
 ```
 
 ### Comments
@@ -71,10 +72,14 @@ ggplot(df) +
   geom_line(aes(y=Wheat)) + 
   geom_line(aes(y=Wages), color='red') +
   scale_y_continuous( name = "Wages (in Shillings per week)", sec.axis = sec_axis( trans=~.*10, name="Wheat in shillings per quarter")) +
+  labs(title="The price of a quarter of wheat and wages per week from 1565 to 1861") +
   theme(axis.title.y.left = element_text(colour = "red")) 
 ```
+To observe the evolution of wheat price and wages of the specified period, we use lines to enhance the presentation. We also include a confidence interval for the evolution of wheat price as it has a higher variance in the interval. This graph better highlights the presentation of the first graph by showing that while wages were steadily increasing during the period, wheat price was largely fluctuating until the 18th century when we see a steady upward trend.
 
 # 3. More graphical enhancements
+
+In the section, we demonstrate purchasing power by defining it as the quantity of wheat (in quarters) a worker can buy with his weekly salary. In particular, we update our data to include an additional column where we divide the Wages by the price of wheat. We then plot the resulting ratio as function of time.
 
 ```{r}
 df <- transform(df, wheat_wages = Wages / Wheat)
@@ -82,6 +87,18 @@ ggplot(df) +
   aes(x = Year) + 
   geom_point(aes(y=wheat_wages)) + 
   geom_smooth(aes(y=wheat_wages)) +
-  geom_line(aes(y=wheat_wages))
+  geom_line(aes(y=wheat_wages)) +
+labs(title = "Evolution of purchasing power of English workers from 16th to the 19th century.", y="Weekly wages / Price of Quarter of Wheat")
 ```
+It is clear from this graph that purchasing power increased from the 16th century until a peak around 1770. It then started to decline continuously beyound this point. This may be attributed to the sharp increase in the price of wheat as highlighted in the previous graph.
 
+We can also present the data in a graph where the wheat price is on the y-axis and the weekly wages is on the x-axis. This is presented below:
+```{r}
+ggplot(df, aes(x=Wages, y=Wheat, size=wheat_wages, alpha=Year)) + 
+    geom_point(color = "purple") + 
+  labs(title="Scatterplot of purchasing power of English workers from 16th to the 19th century", y="Wheat price (Shillings per quarter) ", y="Wages (Shillings per week)")
+```
+Here we have use a scatter plot to compare the wheat price and wages and we use colors to illustrate the years of the data. In particular, the brightest colors represent the earlier years (16th century) and the darker colors represent more recent years (19th century). We also use the ratio of wheat price to wages to capture the strength of the purchasing for each data point. Specifically, larger circles represent higher purchasing power and smaller circles represent lower purchasing power. 
+
+## Conculsion
+We have presented the Playfair's data on purchasing power between 16th and 19th century using different graphical methods. In particular, we started by replicating Playfair's original graph and then making enhancements to better highlight the trends in purchasing power over the period considered. Of all the graphs presented, the most intuitive is the third one that takes a ratio of the price of wheat and the wages for each year and produces a plot of the variation over time. On the other hand, the scatter plot comparing wheat price and wages with color gradients for years and circle size for purchasing power is less intuitive for the data.
