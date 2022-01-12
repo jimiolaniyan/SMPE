@@ -28,23 +28,11 @@ This repository contains notes and homework reports for the course SMPE course a
 
 - [x] [ANOVA Exercise on Bats](https://github.com/CarlosVargasF/SMPE_MOSIG/blob/main/ANOVA_exercise/bats_analysis.pdf) (Working with Carlos)
 
-
 ## Notes
 
-### Week 4
-
 - [x] [Lecture 4](notes/Lecture_4_notes.md)
-
-### Week 5
-
 - [x] [Lecture 5](notes/Lecture_5_notes.md)
-
-### Week 6
-
 - [x] [Lecture 6](notes/Lecture_6_notes.md)
-
-### Week 7
-
 - [x] [Lecture 7](notes/Lecture_7_annotated_notes.pdf)
 - [x] [TP on Linear Regression](notes/LinearRegression.pdf)
 
