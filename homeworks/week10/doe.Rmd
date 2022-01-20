@@ -1,0 +1,85 @@
+---
+title: "DoE"
+author: "Olaniyan Folajimi"
+date: "1/13/2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library('lhs')
+library(ggplot2)
+library(corrplot)
+```
+
+```{r}
+s <- optimumLHS(90,11)
+s
+```
+```{r}
+data <- read.table(file="exp.csv", sep=",", header=T)
+data$y <- as.numeric(data$y)
+names(data)
+```
+
+```{r}
+mat.cor=cor(data)
+corrplot(mat.cor, type="upper")
+```
+```{r}
+cor.test(data$y, data$x1)
+cor.test(data$y, data$x2)
+cor.test(data$y, data$x3)
+cor.test(data$y, data$x4)
+cor.test(data$y, data$x5)
+cor.test(data$y, data$x6)
+cor.test(data$y, data$x7)
+cor.test(data$y, data$x8)
+cor.test(data$y, data$x9)
+cor.test(data$y, data$x10)
+cor.test(data$y, data$x11)
+```
+```{r}
+regm=lm(y~x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10 + x11, data=data)
+summary(regm)
+anova(regm)
+```
+```{r}
+reg0 = lm(y ~ 1, data = data)
+step(reg0, scope=y~x1 + x4 + x9, direction="forward")
+```
+```{r}
+par(mfcol=c(2,2))
+plot(regm)
+```
+```{r}
+regp= lm(y ~ x1 + + x4 + x9 + I(x1^2) + I(x1^3) + I(x4^2) + I(x4^3) + I(x9^2) + I(x9^3), data=data)
+summary(regp)
+anova(regp)
+```
+```{r}
+regp= lm(y ~ x1 + + x4 + x9 + I(x1^2) + I(x1^3) + I(x4^2) + I(x4^3) + I(x9^2) + I(x9^3), data=data)
+summary(regp)
+anova(regp)
+```
+
+```{r}
+regp <- lm(y ~ poly(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, degree=2), data=data)
+summary(regp)
+anova(regp)
+```
+
+```{r}
+reg0 = lm(y ~ 1, data = data)
+step(reg0, scope=y~x1 + x4 + x9 + I(x1^2) + I(x1^3), direction="forward")
+```
+
+```{r}
+s <- optimumLHS(90,3)
+s
+```

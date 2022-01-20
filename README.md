@@ -28,6 +28,14 @@ This repository contains notes and homework reports for the course SMPE course a
 
 - [x] [ANOVA Exercise on Bats](https://github.com/CarlosVargasF/SMPE_MOSIG/blob/main/ANOVA_exercise/bats_analysis.pdf) (Working with Carlos)
 
+### Week 10
+
+- [x] [DoE Excecise](homeworks/week10/doe.pdf)
+
+### Week 11
+
+- [x] [Ethics Paper Review](homeworks/week11/Ethics_Paper.pdf)
+
 ## Notes
 
 - [x] [Lecture 4](notes/Lecture_4_notes.md)
