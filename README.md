@@ -35,6 +35,7 @@ This repository contains notes and homework reports for the course SMPE course a
 ### Week 11
 
 - [x] [Ethics Paper Review](homeworks/week11/Ethics_Paper.pdf)
+- [x] [Slides](homeworks/week11/Ethics_Slides.pdf)
 
 ## Notes
 
