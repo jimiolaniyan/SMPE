@@ -48,4 +48,3 @@ This repository contains notes and homework reports for the course SMPE course a
 
 - [ ] Parallel quicksort imporvements (Use prometheus and grafana)
 - [ ] Finish R manipulation homework
-- [ ] Do DoE exercise
